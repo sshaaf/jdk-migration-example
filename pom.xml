@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<groupId>com.redhat.migr.examples</groupId>
+	<artifactId>jdk-migration-example</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>jdk-migration-example</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jboss.windup.plugin</groupId>
+				<artifactId>windup-maven-plugin</artifactId>
+				<version>4.2.0.Final</version>
+				<executions>
+					<execution>
+						<id>run-windup</id>
+						<phase>package</phase>
+						<goals>
+							<goal>windup</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<offlineMode>true</offlineMode>
+					<windupVersion>4.2.0.Final</windupVersion>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
